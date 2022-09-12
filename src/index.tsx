@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
-
+import HeaderPanel from './components/header-panel';
+import InputPanel from './components/input-panel';
 
 const validate_ssid = (str:string) => {
   return /^(pldt)(home)?(fibr)([a-zA-Z0-9]{3,7})$/gi.test(str);
 }
+
+
+/***
+ * Method 1: PLDTHOMEDSL12345 -> <last 5 number > * 3 -> PLDTWIFI<Result>
+ * Method 2: PLDTHOMEFIBR_cdf123 -> <chars after _> -> convert to dict -> wlan<Result>
+ * 
+ */
 function App() {
   /**
    * I am actually new in React and this is the best way i can do for now :)
@@ -22,7 +30,7 @@ function App() {
     "5":"a",
     "6":"9",
     "7":"8",
-    "8":"8",
+    "8":"7",
     "9":"6",
     "a":"5",
     "b":"4",
@@ -73,26 +81,12 @@ function App() {
   return (
     <div className="container">
       <div>
-        <div className='panel'>
-          <h3>PLDT WIFI SSID</h3>
-        </div>
-        <div className='panel'>
-          <div className="input-group">
-            <input onKeyUp={(event) => keyUpEvent(event.currentTarget.value)} 
-              required 
-              type="text" 
-              name="text" 
-              autoComplete='false' 
-              className={"ssid " + (valid ? 'valid' : 'invalid')}
-            />
-            <label className="ssid-label">SSID</label>
-          </div>
-        </div>
-        <div className='panel'>
-          <ul className='pwd-list' id='list-item'>
-            <li>{getPWD}</li>
-          </ul>
-        </div>
+       <HeaderPanel
+          title='PLDT WiFi'
+       />
+       <InputPanel
+          placeHolder='PLDT Wifi SSID'
+       />
       </div>
     </div>
   );
