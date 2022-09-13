@@ -4,9 +4,12 @@ import './index.scss';
 import HeaderPanel from './components/header-panel';
 import InputPanel from './components/input-panel';
 import Infos from './info';
+import ReactGA from 'react-ga';
+
 
 function App() {
-  
+  ReactGA.initialize("G-RGJ0Q2KKJX");
+
   return (
     <div className="container">
       <div>
