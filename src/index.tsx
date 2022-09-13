@@ -8,7 +8,8 @@ import ReactGA from 'react-ga';
 
 
 function App() {
-  ReactGA.initialize("G-RGJ0Q2KKJX");
+  if(process.env.REACT_APP_GAMI)
+  	ReactGA.initialize(process.env.REACT_APP_GAMI);
 
   return (
     <div className="container">
