@@ -17,7 +17,7 @@ var URLS = [                            // Add URL you want to cache in this lis
     "Montserrat-ThinItalic.woff2",
     "robots.txt",
     "static/css/main.5ed0f1dc.css",
-    "static/js/main.48a6c1e2.js"
+    "static/js/main.ce50e362.js"
 ];
 URLS = URLS.map(function(u){
 	return prefix + u;
