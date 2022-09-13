@@ -2,8 +2,18 @@ __Generate Password Using PLDT SSID__
 
 ## The password should be 
 
-- PLDTHOMEFibr\<Random Character here\>
-- Later for other support
+- PLDTHOMEFIBR
+- PLDTHOMEDSL
+- PLDTFIBR
+
+## Hey, Hey, Hey
+
+***It can work even Offline***
+ 
+So whenever you are and you already visited this page before
+this would work. :)
+ 
+Happy Hacking...
 
 # Note
 
