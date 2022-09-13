@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
-      name="description"
-      content="Generate Password"
+    name="description"
+    content="Generate Password"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/310x310.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="stylesheet" href="%PUBLIC_URL%/font.css" />
     <title>Password Generator</title>
     <script type="application/javascript">
-      if ("serviceWorker" in navigator) {
-        try {
-          const registration = await navigator.serviceWorker.register("/password-generator/sw.js", {
-            scope: "/",
-          });
-          if (registration.installing) {
-            console.log("Service worker installing");
-          } else if (registration.waiting) {
-            console.log("Service worker installed");
-          } else if (registration.active) {
-            console.log("Service worker active");
-          }
-        } catch (error) {
-          console.error(`Registration failed with ${error}`);
-        }
-      }
+        !async function(e,r){if("serviceWorker"in navigator)try{let i=await navigator.serviceWorker.register(e,{scope:r});
+        i.installing?console.log("Service worker installing"):i.waiting?console.log("Service worker installed"):i.active&&
+        console.log("Service worker active")}catch(t){console.error(`Registration failed with ${t}`)}}
+        ("/password-generator/sw.js","/password-generator/");
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-  </body>
+</body>
 </html>

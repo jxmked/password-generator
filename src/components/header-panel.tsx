@@ -1,13 +1,10 @@
 import React from "react";
 import "./styles/header-panel.scss";
 
-interface Props {
-    title:string;
-}
-const Head = ({title}:Props) => {
+const Head = () => {
     return (
         <div className="panel">
-            <h3>{title}</h3>
+            <h3>PLDT WIFI</h3>
         </div>
     )
 }

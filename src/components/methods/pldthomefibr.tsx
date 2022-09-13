@@ -5,8 +5,8 @@ class v1 extends Dictionary {
         super();
         this.value = value;
         this.prefix = "PLDTWIFI";
-        this.test_pattern = new RegExp("^(PLDTHOMEFIBR)([a-f0-9]{3,7})$", "gi");
-        this.__postfix_matcher = new RegExp("(?<=(PLDTHOMEFIBR))([a-f0-9]{3,7})","gi");
+        this.test_pattern = new RegExp("^(PLDTHOMEFIBR)([a-fA-F0-9]{3,7})$", "gi");
+        this.__postfix_matcher = new RegExp("(?<=(PLDTHOMEFIBR))([a-fA-F0-9]{3,7})","gi");
     }
 
     get password():string {
@@ -18,24 +18,24 @@ class v1 extends Dictionary {
 class v2 extends v1 {
     constructor(value:string) {
         super(value);
-        this.test_pattern = new RegExp("^(PLDTHOMEFIBR_)([a-f0-9]{3,7})$", "gi");
-        this.__postfix_matcher = new RegExp("(?<=(PLDTHOMEFIBR_))([a-f0-9]{3,7})","gi");
+        this.test_pattern = new RegExp("^(PLDTHOMEFIBR_)([a-fA-F0-9]{3,7})$", "gi");
+        this.__postfix_matcher = new RegExp("(?<=(PLDTHOMEFIBR_))([a-fA-F0-9]{3,7})","gi");
     }
 } 
 
 class v3 extends v1 {
     constructor(value:string) {
         super(value);
-        this.test_pattern = new RegExp("^(PLDTFIBR)([a-f0-9]{3,7})$", "gi");
-        this.__postfix_matcher = new RegExp("(?<=(PLDTFIBR))([a-f0-9]{3,7})","gi");
+        this.test_pattern = new RegExp("^(PLDTFIBR)([a-fA-F0-9]{3,7})$", "gi");
+        this.__postfix_matcher = new RegExp("(?<=(PLDTFIBR))([a-fA-F0-9]{3,7})","gi");
     }
 } 
 
 class v4 extends v1 {
     constructor(value:string) {
         super(value);
-        this.test_pattern = new RegExp("^(PLDTFIBR_)([a-f0-9]{3,7})$", "gi");
-        this.__postfix_matcher = new RegExp("(?<=(PLDTFIBR_))([a-f0-9]{3,7})","gi");
+        this.test_pattern = new RegExp("^(PLDTFIBR_)([a-fA-F0-9]{3,7})$", "gi");
+        this.__postfix_matcher = new RegExp("(?<=(PLDTFIBR_))([a-fA-F0-9]{3,7})","gi");
     }
 }
 

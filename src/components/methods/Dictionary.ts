@@ -11,6 +11,7 @@ export default class Dictionary {
     prefix:string;
     __password:string;
     __postfix_matcher:RegExp;
+    
     constructor(){
         this.test_pattern = /()/;
         this.__postfix_matcher = /()/;
