@@ -1,6 +1,6 @@
 {
   "name": "password-generator",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "private": true,
   "homepage": "https://jxmked.github.io/password-generator/",
   "dependencies": {
@@ -11,18 +11,17 @@
     "@types/node": "^16.11.58",
     "@types/react": "^18.0.19",
     "@types/react-dom": "^18.0.6",
-    "cra-template-pwa": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
     "typescript": "^4.8.3",
-    "uglify-es": "^3.3.9"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -43,14 +42,6 @@
     ]
   },
   "devDependencies": {
-    "@types/sass": "^1.43.1",
-    "@types/sass-loader": "^8.0.3",
-    "@types/webpack": "^5.28.0",
-    "node-sass": "^7.0.3",
-    "nth-check": "^2.1.1",
-    "react-scripts": "^5.0.1",
-    "sass": "^1.54.9",
-    "sass-loader": "^13.0.2",
-    "webpack": "^5.74.0"
+    "sass": "^1.54.9"
   }
 }
