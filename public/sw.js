@@ -1,4 +1,4 @@
-var APP_PREFIX = 'password-generator'     // Identifier for this app (this needs to be consistent across every cache update)
+var APP_PREFIX = "password-generator";     // Identifier for this app (this needs to be consistent across every cache update)
 var VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION;
 var prefix = "/";
@@ -17,7 +17,7 @@ var URLS = [                            // Add URL you want to cache in this lis
     "Montserrat-ThinItalic.woff2",
     "robots.txt",
     "static/css/main.5ed0f1dc.css",
-    "static/js/main.0deed0d5.js",
+    "static/js/main.6fa86a80.js",
 ];
 URLS = URLS.map(function(u){
 	return prefix + u;
