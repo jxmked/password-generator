@@ -11,6 +11,8 @@ function App() {
   if(process.env.REACT_APP_GAMI)
   	ReactGA.initialize(process.env.REACT_APP_GAMI);
 
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <div className="container">
       <div>
