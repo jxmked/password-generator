@@ -1,33 +1,35 @@
 var APP_PREFIX = 'password-generator'     // Identifier for this app (this needs to be consistent across every cache update)
 var VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
-var CACHE_NAME = APP_PREFIX + VERSION
+var CACHE_NAME = APP_PREFIX + VERSION;
+var prefix = "/";
+
 var URLS = [                            // Add URL you want to cache in this list.
-    "/password-generator/",                     // If you have separate JS/CSS files,
-    "/password-generator/310x310.png",
-    "/password-generator/asset-manifest.json",
-    "/password-generator/favicon.ico",
-    "/password-generator/font.css",
-    "/password-generator/index.html",
-    "/password-generator/manifest.json",
-    "/password-generator/Montserrat-Thin.woff",
-    "/password-generator/Montserrat-Thin.woff2",
-    "/password-generator/Montserrat-ThinItalic.woff",
-    "/password-generator/Montserrat-ThinItalic.woff2",
-    "/password-generator/robots.txt",
-    "/password-generator/static/css/main.5ed0f1dc.css",
-    "/password-generator/static/js/main.0deed0d5.js",
+    "",                     // If you have separate JS/CSS files,
+    "310x310.png",
+    "asset-manifest.json",
+    "favicon.ico",
+    "font.css",
+    "index.html",
+    "manifest.json",
+    "Montserrat-Thin.woff",
+    "Montserrat-Thin.woff2",
+    "Montserrat-ThinItalic.woff",
+    "Montserrat-ThinItalic.woff2",
+    "robots.txt",
+    "static/css/main.5ed0f1dc.css",
+    "static/js/main.0deed0d5.js",
 ];
+URL = URL.map(function(u){
+	return prefix + u;
+});
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
-  console.log('fetch request : ' + e.request.url)
   e.respondWith(
     caches.match(e.request).then(function (request) {
       if (request) { // if cache is available, respond with cache
-        console.log('responding with cache : ' + e.request.url)
         return request
       } else {       // if there are no cache, try fetching request
-        console.log('file is not cached, fetching : ' + e.request.url)
         return fetch(e.request)
       }
 
@@ -41,7 +43,6 @@ self.addEventListener('fetch', function (e) {
 self.addEventListener('install', function (e) {
   e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
-      console.log('installing cache : ' + CACHE_NAME)
       return cache.addAll(URLS)
     })
   )
@@ -61,7 +62,6 @@ self.addEventListener('activate', function (e) {
 
       return Promise.all(keyList.map(function (key, i) {
         if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i] )
           return caches.delete(keyList[i])
         }
       }))
