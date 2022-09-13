@@ -19,7 +19,7 @@ var URLS = [                            // Add URL you want to cache in this lis
     "static/css/main.5ed0f1dc.css",
     "static/js/main.0deed0d5.js",
 ];
-URL = URL.map(function(u){
+URLS = URLS.map(function(u){
 	return prefix + u;
 });
 
