@@ -3,11 +3,7 @@ import ListItem from './item-list-panel';
 import './styles/input-panel.scss';
 import algo from './algorithm';
 
-interface Props {
-    placeHolder:string
-}
-
-const InputPanel = ({placeHolder}:Props) => {
+const InputPanel = () => {
     const [getElement, setElements] = useState(<></>);
     
     return (
@@ -19,13 +15,13 @@ const InputPanel = ({placeHolder}:Props) => {
                         required
                         autoComplete="off"
                         type="text"
-                        placeholder={placeHolder}
+                        placeholder="WIFI SSID"
                     />
                 </form>
                 {getElement}
             </div>
         </div>
-    )    
+    )
 }
 
 export default InputPanel;

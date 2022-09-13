@@ -21,8 +21,8 @@ class v2 extends Dictionary {
         super();
         this.value = value;
         this.prefix = "PLDTWIFI";
-        this.test_pattern = new RegExp("^(PLDTHOMEDSL)([a-f0-9]{3,7})$", "gi");
-        this.__postfix_matcher = new RegExp("(?<=(PLDTHOMEDSL))([a-f0-9]{3,7})","gi");
+        this.test_pattern = new RegExp("^(PLDTHOMEDSL)([a-fA-F0-9]{3,7})$", "gi");
+        this.__postfix_matcher = new RegExp("(?<=(PLDTHOMEDSL))([a-fA-F0-9]{3,7})","gi");
     }
 
     get password():string {
