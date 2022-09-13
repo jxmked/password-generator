@@ -1,0 +1,14 @@
+div {
+    > h3 {
+        text-align: center;
+        color: rgb(90, 205, 250);
+        font-family: 'Montserrat';
+        font-weight: 700;
+        font-style: normal;
+        letter-spacing: 2px;
+        width: 90%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #000;
+        margin: 20px auto;
+    }
+}

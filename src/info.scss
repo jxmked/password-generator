@@ -1,0 +1,21 @@
+.panel.info {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    color: rgb(188, 188, 192);
+    font-family: "Monserrat", Helvetica, sans-serif;
+
+    > label {
+        font-size: 1rem;
+        font-weight: 700;
+        color: rgb(90, 205, 250);
+    }
+
+    > ul {
+        list-style-type: none;
+        > li {
+            margin-bottom:  0.6rem;
+        }
+    }
+}

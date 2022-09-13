@@ -17,7 +17,7 @@ code {
 
 
 :root  {
-  --height: 70vh;
+  --height: 90vh;
   --width: 50vw;
   --max-width: 600px;
   --max-height: 600px;
@@ -56,7 +56,8 @@ code {
     background-color: rgb(26, 26, 28);
     border-radius: 0;
     transition: all .2s;
-    position: absolute;
+    position: static;
+    display: block;
 
     &:hover, &:focus {
       transform: scale(0.98);
@@ -70,88 +71,7 @@ code {
     padding: 0; 
     position: static;
     height: auto;
-
-    > h3 {
-      text-align: center;
-      color: rgb(0, 113, 164);
-      font-family: 'Montserrat';
-      font-weight: 500;
-      font-style: bold;
-      width: 100%;
-      height: auto;
-    }
-
-    // form input
-    &:nth-child(2) {
-      margin-top: 50px;
-    }
-    > .input-group {
-      position: relative;
-      width: 100%;
-
-      .ssid {
-        width: 70%;
-        border: solid 1.5px #9e9e9e;
-        border-radius: 1rem;
-        background: none;
-        padding: 1rem;
-        font-size: 1rem;
-        color: #f5f5f5;
-        transition: border 150ms cubic-bezier(0.4,0,0.2,1);
-        outline: none;
-        margin: 8px;
-        margin-left: calc(24% / 2);
-        &:focus ~ .ssid-label,
-        &:hover ~ .ssid-label,
-        &:valid ~ .ssid-label {
-          transform: translateY(-175%) scale(0.8) translateX(-350%);
-          background-color: rgb(26, 26, 28);
-          padding: 0 .2em;
-          color: #2196f3;
-        }
-
-        &.invalid {
-          border: 1px solid rgb(201, 0, 21);
-        }
-      }
-      .ssid-label {
-        position: absolute;
-        background-color: inherit;
-        transform: translate(-50%, -50%);
-        top: 50%;
-        left: 50%;
-        transition: transform 100ms ease-in;
-        font-family: 'Montserrat';
-        font-weight: 500;
-        font-style: bold;
-        color:rgb(0, 113, 164);
-      }
-    }
-
-    .pwd-list {
-      margin: 0%;
-      padding: 20px 40px;
-      box-sizing: border-box;
-      height: 100%;
- 
-      li {
-        list-style-type: none;
-        margin-bottom: 10px;
-        padding: 0;
-        text-align: center;
-        border-bottom: 1px solid rgb(124, 124, 128);
-        color: rgb(188, 188, 192);
-        letter-spacing: 2px;
-        padding: 4px 0;
-        font-weight: 300;
-        font-size: 1.2rem;
-        font-family: "Monserrat";
-
-        &:last-child {
-          border-bottom: none;
-        }
-      }
-    }
+    box-sizing: border-box;
   }
  }
 
