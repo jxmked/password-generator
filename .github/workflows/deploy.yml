@@ -1,12 +1,8 @@
 name: Build & deploy
 
 on:
-  push:
-    branches:
-      - xio
-  pull_request:
-    branches:
-      - xio
+  release:
+        types: [created]
 
 jobs:
   build:
