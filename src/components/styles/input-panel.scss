@@ -23,18 +23,6 @@ div.panel {
                 font-family: 'Montserrat';
                 font-weight: 500;
                 font-style: bold;
-                &:focus ~ .input-label,
-                &:hover ~ .input-label,
-                &:valid ~ .input-label {
-                    transform: translateY(-290%) scale(0.8) translateX(-120%);
-                    background-color: rgb(26, 26, 28);
-                    padding: 0 .2em;
-                    color: rgb(250, 152, 41);
-                }
-            
-                &.invalid {
-                    border: 1px solid rgb(201, 0, 21);
-                }
             }
         }
 

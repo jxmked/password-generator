@@ -1,3 +1,4 @@
+
 export default {
   rules: [{
     test: /\.s[ac]ss$/i,
@@ -10,5 +11,6 @@ export default {
         "sass-loader",
       ],
     },
-  ],
+  ]
 };
+

@@ -1,6 +1,18 @@
 let cacheData = "xio_cached-v1";
 const files = [
-
+    "/password-generator/310x310.png",
+    "/password-generator/asset-manifest.json",
+    "/password-generator/favicon.ico",
+    "/password-generator/font.css",
+    "/password-generator/index.html",
+    "/password-generator/manifest.json",
+    "/password-generator/Montserrat-Thin.woff",
+    "/password-generator/Montserrat-Thin.woff2",
+    "/password-generator/Montserrat-ThinItalic.woff",
+    "/password-generator/Montserrat-ThinItalic.woff2",
+    "/password-generator/robots.txt",
+    "/password-generator/static/css/main.fbdd585d.css",
+    "/password-generator/static/js/main.fddfe7f8.js",
 ];
 
 this.addEventListener('install', function(event) {

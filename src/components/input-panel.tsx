@@ -1,4 +1,4 @@
-import React, { KeyboardEventHandler, useState, useEffect } from "react";
+import React, { useState } from "react";
 import ListItem from './item-list-panel';
 import './styles/input-panel.scss';
 import algo from './algorithm';
@@ -7,7 +7,7 @@ interface Props {
     placeHolder:string
 }
 
-export default ({placeHolder}:Props) => {
+const InputPanel = ({placeHolder}:Props) => {
     const [getElement, setElements] = useState(<></>);
     
     return (
@@ -27,3 +27,5 @@ export default ({placeHolder}:Props) => {
         </div>
     )    
 }
+
+export default InputPanel;

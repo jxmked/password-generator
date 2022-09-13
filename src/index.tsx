@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import HeaderPanel from './components/header-panel';
 import InputPanel from './components/input-panel';
-
-const validate_ssid = (str:string) => {
-  return /^(pldt)(home)?(fibr)([a-zA-Z0-9]{3,7})$/gi.test(str);
-}
+import Infos from './info';
+import registerServiceWorker from './serviceWorker-Installer';
 
 
 /***
@@ -15,69 +13,8 @@ const validate_ssid = (str:string) => {
  * 
  */
 function App() {
-  /**
-   * I am actually new in React and this is the best way i can do for now :)
-   */
-  const [getPWD, setSSID] = useState(<></>);
-  const [valid, setValid] = useState(false);
-
-  const dictionary:{[key:string]:string} = {
-    "0":"f",
-    "1":"e",
-    "2":"d",
-    "3":"c",
-    "4":"b",
-    "5":"a",
-    "6":"9",
-    "7":"8",
-    "8":"7",
-    "9":"6",
-    "a":"5",
-    "b":"4",
-    "c":"3",
-    "d":"2",
-    "e":"1",
-    "f":"0",
-    "g":"Z",
-    "h":"Y",
-    "i":"X",
-    "j":"W",
-    "k":"V",
-    "l":"U",
-    "m":"T",
-    "n":"S",
-    "o":"R",
-    "p":"Q",
-    "q":"P",
-    "r":"O",
-    "s":"N",
-    "t":"M",
-    "u":"L",
-    "v":"K",
-    "w":"J",
-    "x":"I",
-    "y":"H",
-    "z":"G"
-  };
-
-  const keyUpEvent = (str:string) => {
-    str = str.trim();
-
-    if(validate_ssid(str)) setValid(true);
-    else {
-      setValid(false);
-      setSSID(<></>)
-      return;
-    }
-    
-    str = str.replace(/^(pldt)(home)?(fibr)/gi, "")
-    const result:string = str.split("").map((c:string) => {
-      return dictionary[c.toLowerCase()];
-    }).join("");
-
-    setSSID(<li>PLTWIFI{result}</li>);
-  }
-
+  registerServiceWorker();
+  
   return (
     <div className="container">
       <div>
@@ -87,6 +24,8 @@ function App() {
        <InputPanel
           placeHolder='PLDT Wifi SSID'
        />
+
+        <Infos />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ interface Props {
     items:string[];
 }
 
-export default ({items}:Props) => {
+const ListItem = ({items}:Props) => {
     const elements:JSX.Element[] = items.map((item:string) => {
         return (
             <li key={"__" + item}>{item}</li>
@@ -15,3 +15,5 @@ export default ({items}:Props) => {
         <ul className="pwd-list">{elements}</ul>
     )
 }
+
+export default ListItem;

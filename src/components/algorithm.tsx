@@ -1,10 +1,9 @@
-import React from "react";
-import b from './methods/pldthomedsl';
-import c from './methods/pldthomefibr';
+import a from './methods/pldthomedsl';
+import b from './methods/pldthomefibr';
 
-const methods:any = [...b, ...c]
+const methods:any = [...a, ...b]
 
-export default (value:string):string[] => {
+const Algorithm:Function = (value:string):string[] => {
     const possible:string[] = [];
     // Removing White Spaces between characters
     // Replace All does not support es5 library
@@ -21,3 +20,5 @@ export default (value:string):string[] => {
     
     return possible;
 }
+
+export default Algorithm;

@@ -1,7 +1,7 @@
 import React from "react";
+import './info.scss';
 
-
-export default () => {
+const Info:Function = () => {
     const notes:string[] = [
         "PLDTHOMEDSLxxxxx",
         "PLDTHOMEDSLxxxxxx",
@@ -10,12 +10,13 @@ export default () => {
         "PLDTFibr_xxxxxx"
     ];
     return (<>
-        <div className="panel">Supported:
+        <div className="panel info">
+            <label>Supported:</label>
             <ul>
                 {notes.map((str:string) => (<li>{str}</li>))}
             </ul>
         </div>
-        <div className="panel">
+        <div className="panel info">
             <label>May not work if</label>
             <ul>
                 <li>Default password has been changed</li>
@@ -24,3 +25,6 @@ export default () => {
         </div>
     </>);
 }
+
+
+export default Info;

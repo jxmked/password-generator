@@ -1,5 +1,3 @@
-import React from "react";
-
 interface DictionaryOppositesProperties {
     version:'v1'|'v2'|'v3';
 }
@@ -30,9 +28,9 @@ export default class Dictionary {
         
         return value.split("").map((c:string) => {
             let index:number = dict.indexOf(c);
-            if(index == -1)
+            if(index === -1) {
                 throw new Error("Out of index");
-            
+            }
             return dict[dict.length - 1 - index];
         }).join("");
     }

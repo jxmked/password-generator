@@ -1,4 +1,3 @@
-import React from "react";
 import Dictionary from "./Dictionary";
 
 class v1 extends Dictionary {
@@ -68,4 +67,7 @@ class v8 extends v4 {
     }
 }
 
-export default [v1, v2, v3, v4, v5, v6, v7, v8]
+const selections = [v1, v2, v3, v4, v5, v6, v7, v8];
+
+
+export default selections;
