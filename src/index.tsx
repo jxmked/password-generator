@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import HeaderPanel from './components/header-panel';
@@ -6,12 +6,12 @@ import InputPanel from './components/input-panel';
 import Infos from './info';
 import ReactGA from 'react-ga';
 
+ReactGA.initialize('G-YD5NP06JKV');
 
 function App() {
-  if(process.env.REACT_APP_GAMI)
-  	ReactGA.initialize(process.env.REACT_APP_GAMI);
-
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  useEffect(() => { 
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, [])
 
   return (
     <div className="container">
