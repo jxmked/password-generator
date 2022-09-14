@@ -4,9 +4,9 @@ import './index.scss';
 import HeaderPanel from './components/header-panel';
 import InputPanel from './components/input-panel';
 import Infos from './info';
-import GA from 'ga-4-react';
+import GA from 'react-ga4';
 
-const ga = new GA('G-YD5NP06JKV');
+GA.initialize('G-YD5NP06JKV');
 
 function App() {
 
@@ -17,7 +17,8 @@ function App() {
       // prod
     }
   }, []); */
-
+  GA.send('pageview');
+  
   return (
     <div className="container">
       <div>
@@ -36,24 +37,11 @@ const root = ReactDOM.createRoot(
 const render = () => {
     root.render(
       <React.StrictMode>
-        <App /
-      </React.StrictMode
+        <App />
+      </React.StrictMode>
     );
 };
 
-(async () => {
-	ga.initialize().then((gai:any) => {
-		gai.pageview(window.location.pathname);
-		gai.gtag("working", 'page-loaded', window.location.pathname)
-		// console.info("Serving with analytics");
-		render();
-	}, (err:any) => {	
-	//	console.log("Serving without analytics");
-		render();
-	});
-
-
-})();
-
+render();
 
 
