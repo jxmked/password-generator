@@ -4,14 +4,20 @@ import './index.scss';
 import HeaderPanel from './components/header-panel';
 import InputPanel from './components/input-panel';
 import Infos from './info';
-import ReactGA from 'react-ga';
+import GA from 'ga-4-react';
 
-ReactGA.initialize('G-YD5NP06JKV');
+const ga = new GA('G-YD5NP06JKV');
 
 function App() {
-  useEffect(() => { 
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }, [])
+  useEffect(() => {
+    ga.initialize().then((g4:any) => {
+      g4.pageview('path');
+      g4.gtag('event', 'pageview','path');
+    }, (err:any) => {
+      console.error(err);
+    });
+   // ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   return (
     <div className="container">
