@@ -49,7 +49,8 @@ self.addEventListener('fetch', function (e) {
         return request
       } else {       // if there are no cache, try fetching request
 	      try {
-		return fetch(e.request)
+		      console.log(e.request);
+		return fetch(e.request);
 	      }catch(err){
 		      console.error("No cache avalable");
 		      console.error(e.request);
