@@ -4,10 +4,10 @@ import GA from 'react-ga4';
 
 const eventAction:Function = (value:string) => { 
   GA.event({
-    action:"keyup",
+    action:value.toUpperCase(),
     category:"generated_value",
     //value:String(value),
-    label:value
+    // label:"generated"
   });
 };
 
