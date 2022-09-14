@@ -45,11 +45,11 @@ self.addEventListener('fetch', function (e) {
 
   e.respondWith(
     caches.match(e.request).then(function (request) {
+	    console.log(e.request, "requesting for");
       if (request) { // if cache is available, respond with cache
         return request
       } else {       // if there are no cache, try fetching request
 	      try {
-		      console.log(e.request);
 		return fetch(e.request);
 	      }catch(err){
 		      console.error("No cache avalable");
