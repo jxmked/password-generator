@@ -1,37 +1,24 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 import HeaderPanel from './components/header-panel';
 import InputPanel from './components/input-panel';
 import Infos from './info';
-import GA from 'ga-4-react';
+import GA from 'react-ga4';
 
-const ga = new GA('G-YD5NP06JKV');
+GA.initialize('G-YD5NP06JKV');
 
 function App() {
-  useEffect(() => { 
+
+  /* useEffect(() => { 
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
        // dev
     } else {
       // prod
-      (async (sw, scope) => {
-      	if('serviceWorker' in navigator){
-	   try {
-	   	const nsw = await navigator.serviceWorker.register(sw, {scope:scope});
-		if(nsw.installing)
-			console.log("Making available offline");
-		else if(nsw.waiting)
-			console.log("Available Offline");
-		else if(nsw.active)
-			console.log("Currently Serving as Offline");
-	   } catch(err){
-	   	console.error(err);
-	   }
-	}	
-      })("/sw.js", "/");
     }
-  }, []);
-
+  }, []); */
+  GA.send('pageview');
+  
   return (
     <div className="container">
       <div>
@@ -47,15 +34,14 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-(async () => {
-	ga.initialize().then((gai:any) => {
-		gai.pageview(window.location.pathname);
-		gai.gtag("working", 'page-loaded', window.location.pathname);
+const render = () => {
+    root.render(
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    );
+};
 
-		root.render(
-			<React.StrictMode>
-				<App />
-			</React.StrictMode>
-		);
-	}, (err:any) => console.error(err));
-})();
+render();
+
+
