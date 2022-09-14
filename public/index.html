@@ -17,5 +17,22 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script type="application/javascript">
+      (async fucntion(sw, scope){
+        if('serviceWorker' in navigator){
+           try {
+                var nsw = await navigator.serviceWorker.register(sw, {scope:scope});
+                if(nsw.installing)
+                        console.log("Making available offline");
+                else if(nsw.waiting)
+                        console.log("Available Offline");
+                else if(nsw.active)
+                        console.log("Currently Serving as Offline");
+           } catch(err){
+                console.error(err);
+           }
+        }
+      })("/sw.js", "/");
+    </script>
 </body>
 </html>
