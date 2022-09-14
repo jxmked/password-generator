@@ -15,16 +15,34 @@ var URLS = [                            // Add URL you want to cache in this lis
     "Montserrat-Thin.woff2",
     "Montserrat-ThinItalic.woff",
     "Montserrat-ThinItalic.woff2",
-    "robots.txt",
-    "static/css/main.fbdd585d.css",
-    "static/js/main.dc097e71.js"
+    "robots.txt"
 ];
-URLS = URLS.map(function(u){
-	return prefix + u;
-});
+
+
+function getFiles(){
+  return new Promise(async function(resolve, reject){
+     try{
+       const res = await fetch(prefix + 'asset-manifest.json', {
+         method:"GET"
+       });
+       var i = JSON.parse(await res.text())["entrypoints"];
+	     i.forEach(function(item){
+		     URLS.push(item);
+	     });
+	     URLS = URLS.map(function(u){
+		     return prefix + u;
+	     });
+       resolve();
+     } catch(err){
+	     console.error(err);
+	     reject(err)
+     }
+  });
+}
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
+
   e.respondWith(
     caches.match(e.request).then(function (request) {
       if (request) { // if cache is available, respond with cache
@@ -40,12 +58,16 @@ self.addEventListener('fetch', function (e) {
 })
 
 // Cache resources
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      return cache.addAll(URLS)
-    })
-  )
+self.addEventListener('install', function (e){ 
+	e.waitUntil(new Promise(function(resolve, reject){
+		getFiles().then(function(){
+			var i = [...new Set(URLS)];
+			caches.open(CACHE_NAME).then(function(cache){
+				resolve();
+				return cache.addAll(i);
+			})
+		}).catch(reject);
+	}));
 })
 
 // Delete outdated caches
