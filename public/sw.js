@@ -1,33 +1,53 @@
-var APP_PREFIX = 'password-generator'     // Identifier for this app (this needs to be consistent across every cache update)
+var APP_PREFIX = "password-generator";     // Identifier for this app (this needs to be consistent across every cache update)
 var VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
-var CACHE_NAME = APP_PREFIX + VERSION
+var CACHE_NAME = APP_PREFIX + VERSION;
+var prefix = "/";
+
 var URLS = [                            // Add URL you want to cache in this list.
-    "/password-generator/",                     // If you have separate JS/CSS files,
-    "/password-generator/310x310.png",
-    "/password-generator/asset-manifest.json",
-    "/password-generator/favicon.ico",
-    "/password-generator/font.css",
-    "/password-generator/index.html",
-    "/password-generator/manifest.json",
-    "/password-generator/Montserrat-Thin.woff",
-    "/password-generator/Montserrat-Thin.woff2",
-    "/password-generator/Montserrat-ThinItalic.woff",
-    "/password-generator/Montserrat-ThinItalic.woff2",
-    "/password-generator/robots.txt",
-    "/password-generator/static/css/main.5ed0f1dc.css",
-    "/password-generator/static/js/main.0deed0d5.js",
+    "",                     // If you have separate JS/CSS files,
+    "310x310.png",
+    "asset-manifest.json",
+    "favicon.ico",
+    "font.css",
+    "index.html",
+    "manifest.json",
+    "Montserrat-Thin.woff",
+    "Montserrat-Thin.woff2",
+    "Montserrat-ThinItalic.woff",
+    "Montserrat-ThinItalic.woff2",
+    "robots.txt"
 ];
+
+
+function getFiles(){
+  return new Promise(async function(resolve, reject){
+     try{
+       const res = await fetch(prefix + 'asset-manifest.json', {
+         method:"GET"
+       });
+       var i = JSON.parse(await res.text())["entrypoints"];
+	     i.forEach(function(item){
+		     URLS.push(item);
+	     });
+	     URLS = URLS.map(function(u){
+		     return prefix + u;
+	     });
+       resolve();
+     } catch(err){
+	     console.error(err);
+	     reject(err)
+     }
+  });
+}
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
-  console.log('fetch request : ' + e.request.url)
+
   e.respondWith(
     caches.match(e.request).then(function (request) {
       if (request) { // if cache is available, respond with cache
-        console.log('responding with cache : ' + e.request.url)
         return request
       } else {       // if there are no cache, try fetching request
-        console.log('file is not cached, fetching : ' + e.request.url)
         return fetch(e.request)
       }
 
@@ -38,13 +58,16 @@ self.addEventListener('fetch', function (e) {
 })
 
 // Cache resources
-self.addEventListener('install', function (e) {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('installing cache : ' + CACHE_NAME)
-      return cache.addAll(URLS)
-    })
-  )
+self.addEventListener('install', function (e){ 
+	e.waitUntil(new Promise(function(resolve, reject){
+		getFiles().then(function(){
+			var i = [...new Set(URLS)];
+			caches.open(CACHE_NAME).then(function(cache){
+				resolve();
+				return cache.addAll(i);
+			})
+		}).catch(reject);
+	}));
 })
 
 // Delete outdated caches
@@ -61,7 +84,6 @@ self.addEventListener('activate', function (e) {
 
       return Promise.all(keyList.map(function (key, i) {
         if (cacheWhitelist.indexOf(key) === -1) {
-          console.log('deleting cache : ' + keyList[i] )
           return caches.delete(keyList[i])
         }
       }))
