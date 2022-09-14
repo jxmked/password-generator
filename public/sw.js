@@ -1,5 +1,5 @@
 var APP_PREFIX = "password-generator";     // Identifier for this app (this needs to be consistent across every cache update)
-var VERSION = 'version_01'              // Version of the off-line cache (change this value everytime you want to update cache)
+var VERSION = 'version_02'              // Version of the off-line cache (change this value everytime you want to update cache)
 var CACHE_NAME = APP_PREFIX + VERSION;
 var prefix = "/";
 
@@ -45,17 +45,15 @@ self.addEventListener('fetch', function (e) {
 
   e.respondWith(
     caches.match(e.request).then(function (request) {
-//	    console.log(e.request, "requesting for");
       if (request) { // if cache is available, respond with cache
         return request
       } else {       // if there are no cache, try fetching request
 	      try {
                   return fetch(e.request).catch(function(err){
-			  console.error("Unable to fetch. Offline mode");
+			  console.error("Unable to fetch");
+			  console.info("Offline mode");
 		  });
-	      }catch(err){
-		      console.error("No cache avalable");
-	      }
+	      }catch(err){}
       }
 
       // You can omit if/else for console.log & put one line below like this too.

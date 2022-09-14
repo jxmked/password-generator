@@ -9,8 +9,8 @@ import GA from 'ga-4-react';
 const ga = new GA('G-YD5NP06JKV');
 
 function App() {
-/*
-  useEffect(() => { 
+
+  /* useEffect(() => { 
     if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
        // dev
     } else {
@@ -34,22 +34,26 @@ const root = ReactDOM.createRoot(
 );
 
 const render = () => {
-	root.render(
-		<React.StrictMode>
-			<App />
-		</React.StrictMode>
-	);
+    root.render(
+      <React.StrictMode>
+        <App /
+      </React.StrictMode
+    );
 };
+
 (async () => {
 	ga.initialize().then((gai:any) => {
 		gai.pageview(window.location.pathname);
-		gai.gtag("working", 'page-loaded', window.location.pathname);
+		gai.gtag("working", 'page-loaded', window.location.pathname)
+		// console.info("Serving with analytics");
 		render();
-	}, (err:any) => {
-		
+	}, (err:any) => {	
 	//	console.log("Serving without analytics");
 		render();
 	});
 
 
 })();
+
+
+

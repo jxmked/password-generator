@@ -9,15 +9,16 @@ const Algorithm:Function = (value:string):string[] => {
     // Removing White Spaces between characters
     // Replace All does not support es5 library
     value = value.split(" ").join("").toLowerCase();
-    
-    for(const ClassObject of methods) {
-        const obj:ReturnType<typeof ClassObject> = new ClassObject(value);
-        
-        if(obj.test())
-            possible.push(obj.password);
-    }
-    
+
+    methods.forEach((method:any) => {
+        const obj:ReturnType<typeof method> = new method(value);
+	if(obj.test())
+	    possible.push(obj.password);
+    });
+
     return possible;
 }
 
 export default Algorithm;
+
+
