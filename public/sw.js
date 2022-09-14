@@ -6,7 +6,7 @@ var prefix = "/";
 var URLS = [                            // Add URL you want to cache in this list.
     "",                     // If you have separate JS/CSS files,
     "310x310.png",
-    "asset-manifest.json",
+  //  "asset-manifest.json",
     "favicon.ico",
     "font.css",
     "index.html",
