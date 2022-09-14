@@ -33,15 +33,23 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
+const render = () => {
+	root.render(
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
+	);
+};
 (async () => {
 	ga.initialize().then((gai:any) => {
 		gai.pageview(window.location.pathname);
 		gai.gtag("working", 'page-loaded', window.location.pathname);
+		render();
+	}, (err:any) => {
+		
+	//	console.log("Serving without analytics");
+		render();
+	});
 
-		root.render(
-			<React.StrictMode>
-				<App />
-			</React.StrictMode>
-		);
-	}, (err:any) => console.error(err));
+
 })();
