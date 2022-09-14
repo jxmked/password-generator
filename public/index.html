@@ -18,7 +18,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script type="application/javascript">
-      (async fucntion(sw, scope){
+      (async function(sw, scope){
         if('serviceWorker' in navigator){
            try {
                 var nsw = await navigator.serviceWorker.register(sw, {scope:scope});
