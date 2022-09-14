@@ -48,13 +48,14 @@ self.addEventListener('fetch', function (e) {
 //	    console.log(e.request, "requesting for");
       if (request) { // if cache is available, respond with cache
         return request
-     /* } else {       // if there are no cache, try fetching request
+      } else {       // if there are no cache, try fetching request
 	      try {
-		return fetch(e.request);
+                  return fetch(e.request).catch(function(err){
+			  console.error("Unable to fetch. Offline mode");
+		  });
 	      }catch(err){
 		      console.error("No cache avalable");
-		      console.error(e.request);
-	      } */
+	      }
       }
 
       // You can omit if/else for console.log & put one line below like this too.
