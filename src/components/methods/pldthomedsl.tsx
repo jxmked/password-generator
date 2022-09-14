@@ -31,6 +31,22 @@ class v2 extends Dictionary {
     }
 }
 
+class v5 extends v2 {
+    get password():string {
+        let postfix:string = this.value.match(this.__postfix_matcher)!.join("")
+
+	// Convert to decimal
+	try {
+	    let dec:number = parseInt(postfix, 16);
+	    return this.prefix + (dec * 3);
+	} catch(err:any){
+	    return "--Error--";
+	    //throw new Error("Hex is out of index");
+	}
+
+    }
+}
+
 class v3 extends v1 {
     constructor(value:string){
         super(value);
@@ -38,13 +54,14 @@ class v3 extends v1 {
     }
 }
 
+/*
 class v4 extends v2 {
     constructor(value:string){
         super(value);
         this.prefix = "wlan";
     }
-}
+} */
 
-const selections = [v1, v2, v3, v4];
+const selections = [v1, v2, v3, v5];
 
 export default selections;
