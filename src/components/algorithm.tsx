@@ -20,7 +20,7 @@ const Algorithm:Function = (value:string):string[] => {
     // Replace All does not support es5 library
     value = value.split(" ").join("").toLowerCase();
 
-    if(/^(pldt)((homedsl)|((home)?(fibr_?)))([a-fA-F0-9]+)$/i.test(value)) {
+    if(/^(pldt)((homedsl)|((home)?(fibr_?)))([a-fA-F0-9]{4,7})$/i.test(value)) {
        eventAction(value);
     }
 
