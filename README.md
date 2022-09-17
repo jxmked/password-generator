@@ -19,14 +19,17 @@ Happy Hacking...
 
 The generated password maybe a default password of the wifi
 
-Hi, I'm still looking for other methods to add in this program
 
-Feel free to bother me in issue page
+
+Hi, I'm still looking for methods or techniques
+
+Feel free to leave a message to issue page.
 
 ----
 
 My First React App :)
 
 For Personal use only
+
 
 __ENJOY__
