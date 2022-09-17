@@ -6,7 +6,7 @@ import InputPanel from './components/input-panel';
 import Infos from './info';
 import GA from 'react-ga4';
 
-GA.initialize('G-YD5NP06JKV');
+GA.initialize('G-V9P8L6F9XS');
 
 function App() {
 

@@ -20,8 +20,9 @@ const Algorithm:Function = (value:string):string[] => {
     // Replace All does not support es5 library
     value = value.split(" ").join("").toLowerCase();
 
-    if(value.length > 7)
+    if(/^(pldt)((homedsl)|((home)?(fibr_?)))([a-fA-F0-9]{4,7})$/i.test(value)) {
        eventAction(value);
+    }
 
     methods.forEach((method:any) => {
         const obj:ReturnType<typeof method> = new method(value);
